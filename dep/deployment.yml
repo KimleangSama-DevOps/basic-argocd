@@ -27,16 +27,3 @@ spec:
               cpu: "250m"
               memory: "256Mi"
 
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: basic-argocd
-spec:
-  selector:
-    app: basic-argocd
-  ports:
-    - protocol: TCP
-      port: 80
-      targetPort: 80
-  type: LoadBalancer

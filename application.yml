@@ -11,7 +11,7 @@ spec:
     path: dep
   destination:
     server: https://kubernetes.default.svc
-    namespace: basic-argocd
+    namespace: basicargocd
   syncPolicy:
     automated:
       prune: true
