@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: basic-argocd
-          image: kimleangk/argocd:v4
+          image: kimleangk/argocd:v3
           ports:
             - containerPort: 80
           resources:
