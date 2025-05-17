@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: basic-argocd
+  labels:
+    app: basic-argocd
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: basic-argocd
+  template:
+    metadata:
+      labels:
+        app: basic-argocd
+    spec:
+      containers:
+        - name: basic-argocd
+          image: kimleangk/argocd:v1
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+            limits:
+              cpu: "250m"
+              memory: "256Mi"
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: basic-argocd
+spec:
+  selector:
+    app: basic-argocd
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  type: LoadBalancer
